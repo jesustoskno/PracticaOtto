@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import co.mobiwise.android.baseproject.utils.BusUtil;
 
-public class _BaseActivity extends AppCompatActivity {
+public abstract class _BaseActivity extends AppCompatActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
