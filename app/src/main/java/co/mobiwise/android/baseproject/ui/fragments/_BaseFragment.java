@@ -19,11 +19,6 @@ public abstract class _BaseFragment extends Fragment {
   }
 
   @Override
-  public void onCreate(Bundle bundle) {
-    super.onCreate(bundle);
-  }
-
-  @Override
   public void onActivityCreated(Bundle bundle) {
     super.onActivityCreated(bundle);
     if (!restoreStateFromArguments()) {
@@ -51,11 +46,6 @@ public abstract class _BaseFragment extends Fragment {
   public void onDestroyView() {
     saveStateToArguments();
     super.onDestroyView();
-  }
-
-  @Override
-  public void onDestroy() {
-    super.onDestroy();
   }
 
   private void saveStateToArguments() {

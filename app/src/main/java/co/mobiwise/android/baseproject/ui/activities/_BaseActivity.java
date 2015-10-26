@@ -8,17 +8,6 @@ import co.mobiwise.android.baseproject.utils.BusUtil;
 public abstract class _BaseActivity extends AppCompatActivity {
 
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-
-  }
-
-  @Override
-  protected void onDestroy() {
-    super.onDestroy();
-  }
-
-  @Override
   protected void onResume() {
     super.onResume();
     BusUtil.BUS.register(this);
