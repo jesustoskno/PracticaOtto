@@ -12,6 +12,11 @@ def BUILD_TIME = 'BUILD_TIME'
 def CONNECTION_TIMEOUT = 'CONNECTION_TIMEOUT'
 def REST_ENDPOINT = 'REST_ENDPOINT'
 
+repositories {
+
+  maven { url "https://jitpack.io" }
+}
+
 android {
 
   publishNonDefault true
@@ -35,13 +40,13 @@ android {
 
   signingConfigs {
     debug {
-      storeFile file('../distribution/debug.keystore')
+      //storeFile file('../distribution/debug.keystore')
     }
 
     release {
       keyAlias ''
       keyPassword ''
-      storeFile file('../distribution/release.jks')
+      //storeFile file('../distribution/release.jks')
       storePassword ''
     }
   }
@@ -113,5 +118,7 @@ dependencies {
   compile "com.facebook.stetho:stetho:${rootProject.ext.stethoVersion}"
   compile "com.facebook.stetho:stetho-okhttp:${rootProject.ext.stethoVersion}"
 
-  compile 'com.afollestad:material-dialogs:0.7.7.0'
+  compile('com.afollestad.material-dialogs:core:0.8.4.2@aar') {
+    transitive = true
+  }
 }
