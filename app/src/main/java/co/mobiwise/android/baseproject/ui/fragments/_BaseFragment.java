@@ -21,7 +21,6 @@ public abstract class _BaseFragment extends Fragment {
   @Override
   public void onCreate(Bundle bundle) {
     super.onCreate(bundle);
-    BusUtil.BUS.register(this);
   }
 
   @Override
@@ -57,10 +56,6 @@ public abstract class _BaseFragment extends Fragment {
   @Override
   public void onDestroy() {
     super.onDestroy();
-    try {
-      BusUtil.BUS.unregister(this);
-    } catch (Exception e) {
-    }
   }
 
   private void saveStateToArguments() {
@@ -97,6 +92,21 @@ public abstract class _BaseFragment extends Fragment {
     Bundle state = new Bundle();
     onSaveState(state);
     return state;
+  }
+
+  @Override
+  public void onResume() {
+    super.onResume();
+    BusUtil.BUS.register(this);
+  }
+
+  @Override
+  public void onPause() {
+    super.onPause();
+    try {
+      BusUtil.BUS.unregister(this);
+    } catch (Exception e) {
+    }
   }
 
   public boolean onBackPressed() {
