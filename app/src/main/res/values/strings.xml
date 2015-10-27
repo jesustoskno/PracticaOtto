@@ -1,7 +1,8 @@
 <resources>
-  <string name="app_name">BaseProject</string>
+  <string name="app_name">PrácticaOtto</string>
 
   <string name="hello_world">Hello world!</string>
   <string name="action_settings">Settings</string>
   <string name="please_wait">Lütfen Bekleyiniz</string>
+  <string name="error_ciudades">Fallo al obtener las ciudades</string>
 </resources>
