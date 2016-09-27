@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
   private ArrayAdapter<Ciudades> mAdapter;
   private List<Ciudades> mListCiudades;
   private final String mNombre="ObtenerCiudades";
+  private final String mText="Lista de ciudades actualizada";
+  private final String mTextFail="Lista de ciudades falló al actualizarse";
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -90,10 +92,15 @@ public class MainActivity extends AppCompatActivity {
       mListCiudades.clear();
       mListCiudades.addAll(sendCiudadesEvent.getNombres());
       mAdapter.notifyDataSetChanged();
-      Snackbar.make(mListViewCiudades, "Lista de ciudades actualizada", Snackbar.LENGTH_LONG).show();
+      //Snackbar.make(mListViewCiudades, "Lista de ciudades actualizada", Snackbar.LENGTH_LONG).show();
+      snaky(mText);
     }else{
-      Snackbar.make(mListViewCiudades, sendCiudadesEvent.getMessage(), Snackbar.LENGTH_LONG).show();
+      snaky(mTextFail);
     }
+  }
+
+  public void snaky (String text){
+    Snackbar.make(mListViewCiudades, text, Snackbar.LENGTH_LONG).show();
   }
 
   @Override

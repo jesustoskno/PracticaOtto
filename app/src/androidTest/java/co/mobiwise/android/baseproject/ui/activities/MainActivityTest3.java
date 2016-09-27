@@ -19,30 +19,37 @@ import org.junit.runner.RunWith;
 import co.mobiwise.android.baseproject.R;
 
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class MainActivityTest {
+public class MainActivityTest3 {
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
-    public void mainActivityTest() {
-        ViewInteraction imageView = onView(
-                allOf(withId(R.id.fab),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(android.R.id.content),
-                                        0),
-                                1),
-                        isDisplayed()));
-        imageView.check(matches(isDisplayed()));
+    public void mainActivityTest3() {
+        ViewInteraction floatingActionButton = onView(
+                allOf(withId(R.id.fab), isDisplayed()));
+        floatingActionButton.perform(click());
 
+        ViewInteraction textView = onView(
+                allOf(withId(android.R.id.text1), withText("Acapulco")));
+        textView.check(matches(withText("Acapulco")));
+
+        ViewInteraction textView2 = onView(
+                allOf(withId(android.R.id.text1), withText("Arequipa, Perú")));
+        textView2.check(matches(withText("Arequipa, Perú")));
+
+        ViewInteraction textView3 = onView(
+                allOf(withId(android.R.id.text1), withText("Cabo San Lucas")));
+        textView3.check(matches(withText("Cabo San Lucas")));
     }
 
     private static Matcher<View> childAtPosition(
