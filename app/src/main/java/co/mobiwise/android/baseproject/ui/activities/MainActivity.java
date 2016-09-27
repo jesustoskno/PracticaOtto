@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
       mListCiudades.clear();
       mListCiudades.addAll(sendCiudadesEvent.getNombres());
       mAdapter.notifyDataSetChanged();
-      Snackbar.make(mListViewCiudades, "Lista de ciudades actualizada", Snackbar.LENGTH_LONG).show();
+      Snackbar.make(mListViewCiudades, "Lista de ciudades actualizada :)", Snackbar.LENGTH_LONG).show();
     }else{
       Snackbar.make(mListViewCiudades, sendCiudadesEvent.getMessage(), Snackbar.LENGTH_LONG).show();
     }
