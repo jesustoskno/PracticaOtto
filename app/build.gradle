@@ -36,6 +36,7 @@ android {
     buildConfigField STRING, GIT_SHA, "\"${rootProject.ext.gitSha}\""
     buildConfigField STRING, BUILD_TIME, "\"${rootProject.ext.buildTime}\""
     buildConfigField INT, CONNECTION_TIMEOUT, '2000'
+    testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
   }
 
   signingConfigs {
@@ -120,5 +121,8 @@ dependencies {
 
   compile('com.afollestad.material-dialogs:core:0.8.4.2@aar') {
     transitive = true
+  }
+  androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2', {
+    exclude group: 'com.android.support', module: 'support-annotations'
   }
 }
