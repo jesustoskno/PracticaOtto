@@ -12,6 +12,7 @@ import android.view.ViewParent;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
+import org.hamcrest.core.IsInstanceOf;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,21 +30,21 @@ import static org.hamcrest.Matchers.allOf;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class MainActivityTest2 {
+public class MainActivityTest4 {
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
-    public void mainActivityTest2() {
+    public void mainActivityTest4() {
         ViewInteraction floatingActionButton = onView(
                 allOf(withId(R.id.fab), isDisplayed()));
         floatingActionButton.perform(click());
 
         ViewInteraction textView = onView(
-                allOf(withId(R.id.snackbar_text), withText("Lista de ciudades actualizada")));
-        textView.check(matches(isDisplayed()));
-        textView.check(matches(withText("Lista de ciudades actualizada")));
+                allOf(withId(android.R.id.text1), withText("Acapulco"),
+                        isDisplayed()));
+        textView.check(matches(withText("Acapulco")));
 
     }
 

@@ -1,4 +1,4 @@
-package co.mobiwise.android.baseproject.ui.activities;
+package co.mobiwise.android.baseproject;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
   private Bus mBus = BusProvider.getInstance();
   private ListView mListViewCiudades;
-  private SwipeRefreshLayout mRefresh;
+  //private SwipeRefreshLayout mRefresh;
 
   private ArrayAdapter<Ciudades> mAdapter;
   private List<Ciudades> mListCiudades;
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     mListViewCiudades = (ListView) findViewById(R.id.ciudades);
-    mRefresh = (SwipeRefreshLayout) findViewById(R.id.refresh);
+    //mRefresh = (SwipeRefreshLayout) findViewById(R.id.refresh);
 
     mListCiudades = new ArrayList<>();
     mAdapter = new ArrayAdapter<Ciudades>(this, R.layout.simple_list_item_1, mListCiudades);
@@ -55,12 +55,12 @@ public class MainActivity extends AppCompatActivity {
       }
     });
 
-    mRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+    /*mRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
       @Override
       public void onRefresh() {
         mBus.post(new GetCiudadesEvent(mNombre.toString()));
       }
-    });
+    });*/
   }
 
   @Override
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
   @Subscribe
   public void onSendCiudadesEvent(SendCiudadesEvent sendCiudadesEvent){
-    mRefresh.setRefreshing(false);
+    //mRefresh.setRefreshing(false);
     if(sendCiudadesEvent.isSuccess()){
       mListCiudades.clear();
       mListCiudades.addAll(sendCiudadesEvent.getNombres());
