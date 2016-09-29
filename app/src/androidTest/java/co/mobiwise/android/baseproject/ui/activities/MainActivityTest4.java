@@ -39,6 +39,7 @@ public class MainActivityTest4 {
     public void mainActivityTest4() {
         ViewInteraction floatingActionButton = onView(
                 allOf(withId(R.id.fab), isDisplayed()));
+        floatingActionButton.check(matches(isDisplayed()));
         floatingActionButton.perform(click());
 
         ViewInteraction textView = onView(
