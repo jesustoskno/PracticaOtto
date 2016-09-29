@@ -36,11 +36,6 @@ public class MainActivityTest {
     public void mainActivityTest() {
         ViewInteraction imageView = onView(
                 allOf(withId(R.id.fab),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(android.R.id.content),
-                                        0),
-                                1),
                         isDisplayed()));
         imageView.check(matches(isDisplayed()));
 

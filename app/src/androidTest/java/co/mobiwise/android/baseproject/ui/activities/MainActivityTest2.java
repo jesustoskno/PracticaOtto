@@ -42,7 +42,6 @@ public class MainActivityTest2 {
 
         ViewInteraction textView = onView(
                 allOf(withId(R.id.snackbar_text), withText("Lista de ciudades actualizada")));
-        textView.check(matches(isDisplayed()));
         textView.check(matches(withText("Lista de ciudades actualizada")));
 
     }
