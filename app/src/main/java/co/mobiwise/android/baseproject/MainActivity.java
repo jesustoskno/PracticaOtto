@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
   private List<Ciudades> mListCiudades;
   private final String mNombre="ObtenerCiudades";
   private final String mText="Lista de ciudades actualizada";
-  private final String mTextFail="Lista de ciudades falló al actualizarse :(";
+  private final String mTextFail="Lista de ciudades falló al actualizarse";
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
